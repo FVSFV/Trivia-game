@@ -1,4 +1,4 @@
-def quizhistory():
+def quizhistory(score_list):
     questions = {
         "¿Cuál fue la primera capital de Estados Unidos?": "Nueva York",
         "¿Quién fue el primer presidente de Estados Unidos?": "George Washington",
@@ -12,7 +12,7 @@ def quizhistory():
         "¿Cuál es la capital de Francia?": "París"
     }
 
-    score = 0  
+    score = 0
 
     print("¡Bienvenido al quiz de historia!")
     print("Responde a las siguientes 10 preguntas:")
@@ -26,9 +26,10 @@ def quizhistory():
         else:
             print(f"Respuesta incorrecta. La respuesta correcta es: {answer}")
 
+    score_list.append(score)  # Agregar el puntaje a la lista
     print(f"\nPuntuación final: {score}/10")
 
-def quizanimals():
+def quizanimals(score_list):
     questions = {
         "¿Qué animal es conocido como el 'Rey de la selva'?": "León",
         "¿Qué mamífero vuela y es conocido por dormir boca abajo?": "Murciélago",
@@ -42,7 +43,7 @@ def quizanimals():
         "¿Cuál es el animal marino que tiene tres corazones y ocho brazos?": "Pulpo"
     }
 
-    score = 0  
+    score = 0
 
     print("¡Bienvenido al quiz de conocimiento sobre animales!")
     print("Responde a las siguientes 10 preguntas:")
@@ -56,9 +57,10 @@ def quizanimals():
         else:
             print(f"Respuesta incorrecta. La respuesta correcta es: {answer}")
 
+    score_list.append(score)  # Agregar el puntaje a la lista
     print(f"\nPuntuación final: {score}/10")
 
-def quizcapitals():
+def quizcapitals(score_list):
     questions = {
         "¿Cuál es la capital de Francia?": "París",
         "¿Cuál es la capital de Japón?": "Tokio",
@@ -73,7 +75,7 @@ def quizcapitals():
     }
 
     score = 0
-    
+
     print("¡Bienvenido al quiz de capitales del mundo!")
     print("Responde a las siguientes 10 preguntas:")
 
@@ -86,9 +88,11 @@ def quizcapitals():
         else:
             print(f"Respuesta incorrecta. La respuesta correcta es: {answer}")
 
+    score_list.append(score)  # Agregar el puntaje a la lista
     print(f"\nPuntuación final: {score}/10")
 
-def quizchemistry():
+
+def quizchemistry(score_list):
     questions = {
         "¿Cuál es el símbolo químico del hidrógeno?": "H",
         "¿Cuál es el número atómico del oxígeno?": "8",
@@ -102,7 +106,7 @@ def quizchemistry():
         "¿Cuál es el proceso químico por el cual el oxígeno se combina con la glucosa para producir energía en las células?": "Respiración celular"
     }
 
-    score = 0  
+    score = 0
 
     print("¡Bienvenido al quiz de conocimientos básicos de química!")
     print("Responde a las siguientes 10 preguntas:")
@@ -116,9 +120,10 @@ def quizchemistry():
         else:
             print(f"Respuesta incorrecta. La respuesta correcta es: {answer}")
 
+    score_list.append(score)  # Agregar el puntaje a la lista
     print(f"\nPuntuación final: {score}/10")
 
-def quizmath():
+def quizmath(score_list):
     questions = {
         "¿Cuánto es 2 + 2?": "4",
         "¿Cuál es el resultado de 5 x 3?": "15",
@@ -132,7 +137,7 @@ def quizmath():
         "¿Cuántos lados tiene un triángulo?": "3"
     }
 
-    score = 0  
+    score = 0
 
     print("¡Bienvenido al quiz de conocimientos básicos de matemáticas!")
     print("Responde a las siguientes 10 preguntas:")
@@ -146,10 +151,19 @@ def quizmath():
         else:
             print(f"Respuesta incorrecta. La respuesta correcta es: {answer}")
 
+    score_list.append(score)  # Agregar el puntaje a la lista
     print(f"\nPuntuación final: {score}/10")
 
+
 def main():
-    print("¡Bienvenido a la aplicación de quizzes!")
+    Intro = '¡Bienvenido a la aplicación de quizzes!'
+    Intro2 = '!Esperamos que te diviertas!'
+    Intro3 = '!Elige un cuestionario de tu tema favorito y demuesta tus conocimientos!'
+    print(Intro)
+    print(Intro2)
+    print(Intro3)
+
+    scores_matrix = []
 
     while True:
         print("\nMenu:")
@@ -163,15 +177,25 @@ def main():
         choice = input("Elige una opción (1-6): ").strip()
 
         if choice == '1':
-            quizhistory()
+            score_list = []
+            quizhistory(score_list)
+            scores_matrix.append(score_list)
         elif choice == '2':
-            quizanimals()
+            score_list = []
+            quizanimals(score_list)
+            scores_matrix.append(score_list)
         elif choice == '3':
-            quizcapitals()
+            score_list = []
+            quizcapitals(score_list)
+            scores_matrix.append(score_list)
         elif choice == '4':
-            quizchemistry()
+            score_list = []
+            quizchemistry(score_list)
+            scores_matrix.append(score_list)
         elif choice == '5':
-            quizmath()
+            score_list = []
+            quizmath(score_list)
+            scores_matrix.append(score_list)
         elif choice == '6':
             print("Gracias por jugar. ¡Hasta luego!")
             break
